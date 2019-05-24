@@ -1,0 +1,50 @@
+#include <iostream>
+#include <conio.h>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+  int n;
+  int numbers[10] = {};
+  int min, y, z;
+
+  cout << "Enter array size: ";
+  cin >> n;
+  cout << "Enter the " << n << " elements: " << endl;
+
+  for (int i = 0; i < n; i++)
+  {
+    cin >> numbers[i];
+  }
+
+  for (int i = 0; i < n-1; i++)
+  {
+    min = numbers[i];
+    y = i;
+    for (int j = i + 1; j < n; j++)
+    {
+      if (min > numbers[j])
+      {
+        min = numbers[j];
+        y = j;
+      }
+
+    }
+
+    z = numbers[i];
+    numbers[i] = numbers[y];
+    numbers[y] = z;
+  }
+
+  cout << '\n' << "Sorted: " << endl;
+
+  for (int i = 0; i < n; i++)
+  {
+    cout << numbers[i] << ", ";
+  }
+
+  _getch();
+  return 0;
+}
